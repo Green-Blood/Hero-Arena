@@ -30,9 +30,13 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - Sirenix.OdinInspector.CompatibilityLayer
     - Cinemachine
+    - Sirenix.OdinInspector.CompatibilityLayer
+    - Assembly-CSharp
+    - NavMeshComponents
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
+    - NavMeshComponentsEditor
+    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

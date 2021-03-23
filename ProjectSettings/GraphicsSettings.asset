@@ -162,4 +162,6 @@ GraphicsSettings:
   m_FogKeepExp2: 1
   m_AlbedoSwatchInfos: []
   m_LightsUseLinearIntensity: 1
-  m_LightsUseColorTe
+  m_LightsUseColorTemperature: 0
+  m_DefaultRenderingLayerMask: 1
+  m_LogWhenShaderIsCompiled: 0
