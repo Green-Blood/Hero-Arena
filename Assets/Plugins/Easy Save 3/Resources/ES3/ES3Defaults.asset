@@ -31,8 +31,8 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp-firstpass
     - Cinemachine
-    - Sirenix.OdinInspector.CompatibilityLayer
     - Assembly-CSharp
+    - Sirenix.OdinInspector.CompatibilityLayer
     - NavMeshComponents
     - AV.Tags
     - Sirenix.OdinInspector.CompatibilityLayer.Editor

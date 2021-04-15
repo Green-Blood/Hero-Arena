@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -16,9 +17,9 @@ namespace House
 
         private void OnHealthChangedAction(float currentHealth, float maxHealth)
         {
-            healthText.text = currentHealth.ToString("F") + " / " + maxHealth.ToString("F");
+            healthText.text = currentHealth.ToString("0") + " / " + maxHealth.ToString("0");
         }
 
-        
+    
     }
 }

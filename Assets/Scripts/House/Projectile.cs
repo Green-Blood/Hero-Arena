@@ -27,7 +27,6 @@ namespace House
 
         private void Update()
         {
-         
             transform.Translate(Vector3.forward * speed);
             if (!((_points[_currentIndex] - transform.position).sqrMagnitude < 0.2f)) return;
             if (_currentIndex == 8) _rigidbody.useGravity = true;

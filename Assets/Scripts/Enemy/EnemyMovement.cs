@@ -18,6 +18,7 @@ namespace Enemy
 
         private void Update()
         {
+            if(!agent.enabled) return;
             animator.SetFloat(AnimatorTexts.Speed, agent.speed);
             if (agent.remainingDistance < 1f)
             {

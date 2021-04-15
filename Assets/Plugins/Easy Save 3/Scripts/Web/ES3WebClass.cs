@@ -96,8 +96,10 @@ namespace ES3Internal
 			#if UNITY_5
 			if(webRequest.isError)
 			#else
+#pragma warning disable 618
 			if(webRequest.isNetworkError) // isError was renamed to isNetworkError in Unity 2017.
-			#endif
+#pragma warning restore 618
+#endif
 			{
 				errorCode = 1;
 				error = "Error: " + webRequest.error;

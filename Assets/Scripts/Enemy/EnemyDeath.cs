@@ -8,11 +8,13 @@ namespace Enemy
     {
         [SerializeField] private Animator animator;
         [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private Rigidbody enemyRigidbody;
 
         public void Die()
         {
             animator.SetTrigger(AnimatorTexts.DieTrigger);
             agent.enabled = false;
+            enemyRigidbody.useGravity = false;
         }
     }
 }

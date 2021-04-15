@@ -702,7 +702,9 @@ public static class ES3
                 // Wait for it to load.
             }
 
+#pragma warning disable 618
             if (www.isNetworkError)
+#pragma warning restore 618
                 throw new System.Exception(www.error);
             else
                 return DownloadHandlerAudioClip.GetContent(www);

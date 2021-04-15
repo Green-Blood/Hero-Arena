@@ -13,6 +13,10 @@ namespace Enemy
 
         [SerializeField] private Health health;
 
+        private Camera _camera;
+
+        private void Awake() => _camera = Camera.main;
+
         private void OnEnable() => health.OnHealthChangedAction += OnHealthChangedAction;
         private void OnDisable() => health.OnHealthChangedAction -= OnHealthChangedAction;
 
@@ -37,6 +41,12 @@ namespace Enemy
 
             healthBarImage.fillAmount = amount;
             
+        }
+
+        private void LateUpdate()
+        {
+            transform.LookAt(_camera.transform);
+            transform.Rotate(0, 180,0);
         }
     }
 }

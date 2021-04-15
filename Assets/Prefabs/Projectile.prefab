@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  damage: 10
+  damage: 50
   enemyTag: {fileID: 11400000, guid: b81e8672086a48c4293a08fea2045968, type: 2}

@@ -11,12 +11,14 @@ namespace House
         [SerializeField] private float linePower = 2f;
         [SerializeField] private GameObject projectile;
         [SerializeField] private Transform attackLookAtPoint;
-        public float lineDistance;
+        [SerializeField] private ObjectPooler objectPooler;
         [SerializeField] private Transform player;
+        [SerializeField] private Tag projectileTag;
 
 
         public Vector3[] bulletPoints;
-
+        public float lineDistance;
+        
         private RaycastHit hit;
         private bool isShoot;
         private void Awake()
@@ -60,7 +62,9 @@ namespace House
             {
                  
                 isShoot = false;
-                Instantiate(projectile, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
+                objectPooler.SpawnFromPool(projectileTag, new Vector3(transform.position.x, 3f, transform.position.z),
+                    transform.rotation);
+                //Instantiate(projectile, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
             }
             else if (lineRenderer.gameObject.activeInHierarchy)
             {
