@@ -33,8 +33,8 @@ MonoBehaviour:
     - Cinemachine
     - Assembly-CSharp
     - Sirenix.OdinInspector.CompatibilityLayer
-    - NavMeshComponents
     - AV.Tags
+    - NavMeshComponents
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - NavMeshComponentsEditor
     - Sirenix.OdinInspector.Modules.UnityMathematics
