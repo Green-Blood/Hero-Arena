@@ -1,28 +1,29 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private Transform player;
-
-    [SerializeField] private Animator animator;
-    private static readonly int Speed = Animator.StringToHash("Speed");
-    private static readonly int Attack = Animator.StringToHash("Attack");
-
-    private void Awake()
+    public class EnemyMovement : MonoBehaviour
     {
-        agent.SetDestination(player.position);
-    }
+        [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private Transform player;
 
-    private void Update()
-    {
-        animator.SetFloat(Speed, agent.speed);
-        if (agent.remainingDistance < 1f)
+        [SerializeField] private Animator animator;
+        
+
+        private void Awake()
         {
-            animator.SetTrigger(Attack);
+            agent.SetDestination(player.position);
+        }
+
+        private void Update()
+        {
+            animator.SetFloat(AnimatorTexts.Speed, agent.speed);
+            if (agent.remainingDistance < 1f)
+            {
+                animator.SetTrigger(AnimatorTexts.Attack);
             
+            }
         }
     }
 }    
