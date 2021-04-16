@@ -7,7 +7,7 @@ namespace House
     {
         public void Die()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Ded inside");
         }
     }
 }

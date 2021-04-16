@@ -37,8 +37,8 @@ namespace House
                 }
                 
                 transform.position = new Vector3(player.position.x, -1.54f, player.position.z);
-                attackLookAtPoint.position = new Vector3(attackJoystick.Horizontal + transform.position.x, -1.54f,
-                    attackJoystick.Vertical + transform.position.z);
+                attackLookAtPoint.position = new Vector3(attackJoystick.Horizontal + player.position.x, -1.54f,
+                    attackJoystick.Vertical + player.position.z);
                 transform.LookAt(new Vector3(attackLookAtPoint.position.x, 0, attackLookAtPoint.position.z));
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
@@ -47,10 +47,10 @@ namespace House
                 for (int i = 1; i < 10; i++)
                 {
                     lineRenderer.SetPosition(i, new Vector3(
-                        lineRenderer.GetPosition(i - 1).x + attackJoystick.Horizontal, i == 1? 0.3f : 
+                        lineRenderer.GetPosition(i - 1).x + attackJoystick.Horizontal / 2, i == 1? 0.35f : 
                             Mathf.Cos(linePower * (i * 0.1f)) * (i * 0.4f), 
                         lineRenderer.GetPosition(i - 1).z + attackJoystick.Vertical));
-                    bulletPoints[i - 1] = lineRenderer.GetPosition(i);
+                    bulletPoints[i - 1] = lineRenderer.GetPosition(i) + transform.forward * 0.5f;
                 }
                 
                 if (!isShoot)
@@ -60,9 +60,8 @@ namespace House
             }
             else if (isShoot && Input.GetMouseButtonUp(0))
             {
-                 
                 isShoot = false;
-                objectPooler.SpawnFromPool(projectileTag, new Vector3(transform.position.x, 3f, transform.position.z),
+                objectPooler.SpawnFromPool(projectileTag, new Vector3(transform.position.x, 5f, transform.position.z),
                     transform.rotation);
                 //Instantiate(projectile, new Vector3(transform.position.x, 0.5f, transform.position.z), transform.rotation);
             }
