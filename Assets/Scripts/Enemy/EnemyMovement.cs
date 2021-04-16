@@ -6,25 +6,23 @@ namespace Enemy
     public class EnemyMovement : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private Transform player;
-
         [SerializeField] private Animator animator;
+         
         
+        private Transform _player;
 
         private void Awake()
         {
-            agent.SetDestination(player.position);
+            _player = GameObject.FindGameObjectWithTag("Player").transform;
+            agent.SetDestination(_player.position);
         }
 
         private void Update()
         {
-            if(!agent.enabled) return;
-            animator.SetFloat(AnimatorTexts.Speed, agent.speed);
-            if (agent.remainingDistance < 1f)
-            {
-                animator.SetTrigger(AnimatorTexts.Attack);
+            if(agent.isStopped) return;
             
-            }
+            animator.SetFloat(AnimatorTexts.Speed, agent.speed);
+          
         }
     }
 }    

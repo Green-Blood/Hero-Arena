@@ -13,7 +13,7 @@ namespace Enemy
         public void Die()
         {
             animator.SetTrigger(AnimatorTexts.DieTrigger);
-            agent.enabled = false;
+            agent.isStopped = true;
             enemyRigidbody.useGravity = false;
         }
     }

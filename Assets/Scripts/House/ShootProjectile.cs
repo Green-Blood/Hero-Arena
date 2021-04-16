@@ -6,16 +6,16 @@ namespace House
 {
     public class ShootProjectile : MonoBehaviour
     {
-        [SerializeField] private Rigidbody projectile;
+        [SerializeField] private GameObject projectile;
         [SerializeField] private GameObject cursor;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform shootPoint;
 
-        private Camera camera;
+        private Camera _camera;
 
         private void Awake()
         {
-            camera = Camera.main;
+            _camera = Camera.main;
         }
 
         private void Update()
@@ -25,7 +25,7 @@ namespace House
 
         private void LaunchProjectile()
         {
-            Ray cameraRay = camera.ScreenPointToRay(Input.mousePosition);
+            Ray cameraRay = _camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(cameraRay, out hit, 100f, layerMask))
@@ -37,8 +37,8 @@ namespace House
                 transform.rotation = Quaternion.LookRotation(Vo);
                 if (Input.GetMouseButtonDown(0))
                 {
-                    Rigidbody obj = Instantiate(projectile, shootPoint.position, quaternion.identity);
-                    obj.velocity = Vo;
+                    GameObject obj = Instantiate(projectile, shootPoint.position, quaternion.identity);
+                    obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
                 }
             }
             else
@@ -48,23 +48,30 @@ namespace House
             
         }
 
-        Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
+        private Vector3 CalculateVelocity(Vector3 target, Vector3 origin, float time)
         {
             // Define the distance x and y;
-            Vector3 distance = target - origin;
-            Vector3 distanceXZ = distance;
+            var distance = target - origin;
+            var distanceXZ = distance;
+            //distanceXZ.Normalize();
             distanceXZ.y = 0f;
             
             // Create Float representing distance
-            float Sy = distance.y;
-            float Sxz = distanceXZ.magnitude;
+            float distanceY = distance.y;
+            float distanceXZMagnitude = distanceXZ.magnitude;
 
-            float Vxz = Sxz / time;
-            float Vy = Sy / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
+            // Calculate initial x Velocity 
+            // Vx = x / t 
+            float xzVelocity = distanceXZMagnitude / time;
+            
+            // Calculate initial y Velocity 
+            // Vy0 = y / t + 1/2 * g * t
+            float yVelocity = distanceY / time + 0.5f * Mathf.Abs(Physics.gravity.y) * time;
 
+            // Calculate result
             Vector3 result = distanceXZ.normalized;
-            result *= Vxz;
-            result.y = Vy;
+            result *= xzVelocity;
+            result.y = yVelocity;
             return result;
         }
         

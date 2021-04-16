@@ -7,6 +7,8 @@ public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 100f;
    
+    public bool IsDead { get; private set; }
+    
     private IDeath _death;
     private float _currentHealth;
     
@@ -22,6 +24,9 @@ public class Health : MonoBehaviour, IDamageable
     {
         _currentHealth -= value;
         OnHealthChangedAction?.Invoke(_currentHealth, maxHealth);
-        if (_currentHealth <= 0) _death.Die();
+        
+        if (!(_currentHealth <= 0)) return;
+        _death.Die();
+        IsDead = true;
     }
 }

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444903702961008180}
-  - component: {fileID: 444903702961008181}
-  - component: {fileID: 444903702961008182}
-  - component: {fileID: 444903702961008183}
-  - component: {fileID: -1050195574447428493}
   - component: {fileID: -648790256631498385}
+  - component: {fileID: 6105536906911768347}
+  - component: {fileID: 4003138528351433839}
+  - component: {fileID: 3538898254790497932}
+  - component: {fileID: 7319967572801603684}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -36,7 +36,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &444903702961008181
+--- !u!114 &-648790256631498385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444903702961008072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e572caf03fcde9246b2dd324b93508f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionParticle: {fileID: 8884219814433622279}
+  projectileMesh: {fileID: 0}
+  damage: 50
+  enemyTag: {fileID: 11400000, guid: b81e8672086a48c4293a08fea2045968, type: 2}
+  obstacleTag: {fileID: 11400000, guid: 60875152a9b4d734d94a310fdf86cd86, type: 2}
+--- !u!33 &6105536906911768347
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,7 +61,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444903702961008072}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &444903702961008182
+--- !u!23 &4003138528351433839
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,7 +102,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &444903702961008183
+--- !u!135 &3538898254790497932
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,7 +115,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.1530652
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-1050195574447428493
+--- !u!54 &7319967572801603684
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,22 +131,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-648790256631498385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444903702961008072}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e572caf03fcde9246b2dd324b93508f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionParticle: {fileID: 8884219814433622279}
-  damage: 50
-  enemyTag: {fileID: 11400000, guid: b81e8672086a48c4293a08fea2045968, type: 2}
-  obstacleTag: {fileID: 11400000, guid: 60875152a9b4d734d94a310fdf86cd86, type: 2}
 --- !u!1001 &8884219814418297667
 PrefabInstance:
   m_ObjectHideFlags: 0
