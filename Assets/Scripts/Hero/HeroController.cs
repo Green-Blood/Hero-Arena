@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,20 +8,30 @@ namespace Hero
 {
     public class HeroController : MonoBehaviour
     {
-        [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private Animator animator;
-        [SerializeField] private HeroAttack heroAttack;
+        [TabGroup("Hero Parameters")]
         [SerializeField] private float attackDistance = 2f;
-        public Action<Transform> OnEnterAction;
-
+        
+        [TabGroup("Hero References")]
+        [SerializeField] private NavMeshAgent agent;
+        [TabGroup("Hero References")]
+        [SerializeField] private Animator animator;
+        [TabGroup("Hero References")]
+        [SerializeField] private HeroAttack heroAttack;
+        [TabGroup("Hero References")]
+        [SerializeField] private Movement heroMovement;
+        
         private List<Transform> _enemies;
-        private int _currentIndex;
-        private Health _currentEnemyHealth;
         private bool _isAnybodyAround;
+        private Health _currentEnemyHealth;
+        private int _currentIndex;
+        
+        private Vector3 _initialPosition;
 
+        public Action<Transform> OnEnterAction;
         private void Awake()
         {
             _enemies = new List<Transform>();
+            _initialPosition = transform.position;
         }
 
         private void OnEnable() => OnEnterAction += MoveTo;
@@ -29,11 +40,16 @@ namespace Hero
             if (!agent.enabled) return;
             if (agent.remainingDistance < attackDistance)
             {
+                agent.isStopped = true;
                 heroAttack.Attack();
+            }
+            else
+            {
+                agent.isStopped = false;
             }
             
             Move();
-            animator.SetFloat(AnimatorTexts.Speed, agent.speed);
+            animator.SetFloat(AnimatorTexts.Speed, heroMovement.GetCurrentSpeed());
         }
 
         private void Move()
@@ -45,19 +61,20 @@ namespace Hero
                 SetCurrentEnemyHealth();
             }
             agent.SetDestination(_enemies[_currentIndex].position);
+            heroAttack.canAttack = true;
         }
         private void MoveTo(Transform enemy)
         {
             if (!agent.enabled) return;
             _enemies.Add(enemy);
             SetCurrentEnemyHealth();
-            heroAttack.canAttack = true;
+         
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         private void SetCurrentEnemyHealth()
         {
-            if (_currentIndex < _enemies.Count)
+            if (_currentIndex <= _enemies.Count)
             {
                 _currentEnemyHealth = _enemies[_currentIndex].GetComponent<Health>();
                 _isAnybodyAround = true;
@@ -65,9 +82,9 @@ namespace Hero
             else
             {
                 _isAnybodyAround = false;
+                agent.SetDestination(_initialPosition);
+                heroAttack.canAttack = false;
             }
-           
-            
         }
         
         private void OnDisable() => OnEnterAction -= MoveTo;

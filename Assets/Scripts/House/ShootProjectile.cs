@@ -6,16 +6,21 @@ namespace House
 {
     public class ShootProjectile : MonoBehaviour
     {
+
+        [SerializeField] private float shootDelay = 1f;
+        
         [SerializeField] private GameObject projectile;
         [SerializeField] private GameObject cursor;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform shootPoint;
 
         private Camera _camera;
+        private float _delayTime;
 
         private void Awake()
         {
             _camera = Camera.main;
+            _delayTime = Time.time + shootDelay;
         }
 
         private void Update()
@@ -35,11 +40,13 @@ namespace House
 
                 Vector3 Vo = CalculateVelocity(hit.point, shootPoint.position, 1f);
                 transform.rotation = Quaternion.LookRotation(Vo);
-                if (Input.GetMouseButtonDown(0))
-                {
-                    GameObject obj = Instantiate(projectile, shootPoint.position, quaternion.identity);
-                    obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
-                }
+                
+                if (!(Time.time > _delayTime)) return;
+                if (!Input.GetMouseButtonDown(0)) return;
+                GameObject obj = Instantiate(projectile, shootPoint.position, quaternion.identity);
+                obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
+                _delayTime = Time.time + shootDelay;
+
             }
             else
             {

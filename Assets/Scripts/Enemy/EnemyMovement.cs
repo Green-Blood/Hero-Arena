@@ -7,21 +7,22 @@ namespace Enemy
     {
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
-         
+        [SerializeField] private Movement enemyMovement;
+        [SerializeField] private Health enemyHealth;
         
         private Transform _player;
-
+        
         private void Awake()
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;
-            agent.SetDestination(_player.position);
         }
 
         private void Update()
         {
-            if(agent.isStopped) return;
-            
-            animator.SetFloat(AnimatorTexts.Speed, agent.speed);
+            if (enemyHealth.IsDead) return;
+            agent.SetDestination(_player.position);
+            animator.SetFloat(AnimatorTexts.Speed, enemyMovement.GetCurrentSpeed());
+           
           
         }
     }

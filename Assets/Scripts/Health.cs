@@ -26,7 +26,7 @@ public class Health : MonoBehaviour, IDamageable
         OnHealthChangedAction?.Invoke(_currentHealth, maxHealth);
         
         if (!(_currentHealth <= 0)) return;
-        _death.Die();
+        _death.Die();   
         IsDead = true;
     }
 }

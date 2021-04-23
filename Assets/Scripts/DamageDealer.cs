@@ -11,6 +11,11 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] private Tag targetTag;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.HasTag(targetTag)) other.GetComponent<Health>().TakeDamage(damage);
+        if (other.HasTag(targetTag))
+        {
+            other.GetComponent<Health>().TakeDamage(damage);
+             
+        }
+       
     }
 }
