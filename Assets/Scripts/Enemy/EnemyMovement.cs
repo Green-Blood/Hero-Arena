@@ -8,7 +8,6 @@ namespace Enemy
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
         [SerializeField] private Movement enemyMovement;
-        [SerializeField] private Health enemyHealth;
         
         private Transform _player;
         
@@ -16,14 +15,10 @@ namespace Enemy
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-
-        private void Update()
+        public void Move(Vector3 playerPosition)
         {
-            if (enemyHealth.IsDead) return;
-            agent.SetDestination(_player.position);
+            agent.SetDestination(playerPosition);
             animator.SetFloat(AnimatorTexts.Speed, enemyMovement.GetCurrentSpeed());
-           
-          
         }
     }
 }    

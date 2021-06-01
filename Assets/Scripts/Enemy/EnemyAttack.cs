@@ -11,25 +11,18 @@ namespace Enemy
         [Title("References")]
         [SerializeField] private Animator animator;
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private Health enemyHealth;
         [SerializeField] private float attackRange = 1f;
-        private void Update()
-        {
-            if(enemyHealth.IsDead) return;
-            if (agent.remainingDistance < attackRange)
-            {
-                Attack();
-                agent.isStopped = true;
-            }
-            else
-            {
-                agent.isStopped = false;
-            }
-        }
+       
+
         public void Attack()
         {
+            if (agent.remainingDistance < attackRange)
+            {
+                animator.SetTrigger(AnimatorTexts.Attack);   
+                agent.isStopped = true;
+            }
+            else agent.isStopped = false;
             
-            animator.SetTrigger(AnimatorTexts.Attack);
         }
     }
 }

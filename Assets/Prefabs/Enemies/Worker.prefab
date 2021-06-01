@@ -884,6 +884,7 @@ GameObject:
   - component: {fileID: 1910538155}
   - component: {fileID: 877916267}
   - component: {fileID: 2412580016545422749}
+  - component: {fileID: 561981161200449698}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Untagged
@@ -971,7 +972,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 1.1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -994,7 +995,6 @@ MonoBehaviour:
   agent: {fileID: 1910538152}
   animator: {fileID: 3094690990825234299}
   enemyMovement: {fileID: 2412580016545422749}
-  enemyHealth: {fileID: 1910538154}
 --- !u!114 &1910538154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,8 +1051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3094690990825234299}
   agent: {fileID: 1910538152}
-  enemyHealth: {fileID: 1910538154}
-  attackRange: 1
+  attackRange: 1.2
 --- !u!114 &2412580016545422749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,6 +1064,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033b9783d172f9a49a1201b3190ff99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &561981161200449698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3094690990815718599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee61927745a6f440abb45f7b4a10f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAttack: {fileID: 877916267}
+  enemyMovement: {fileID: 1910538150}
+  enemyHealth: {fileID: 1910538154}
 --- !u!1 &3094690990815718601
 GameObject:
   m_ObjectHideFlags: 0

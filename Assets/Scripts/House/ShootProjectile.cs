@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -7,12 +8,17 @@ namespace House
     public class ShootProjectile : MonoBehaviour
     {
 
+        [Title("Parameters")]
         [SerializeField] private float shootDelay = 1f;
-        
-        [SerializeField] private GameObject projectile;
-        [SerializeField] private GameObject cursor;
         [SerializeField] private LayerMask layerMask;
+
+        [Title("References")]
+        [SerializeField] private GameObject cursor;
         [SerializeField] private Transform shootPoint;
+        
+        [Title("Pool")]
+        [SerializeField] private ObjectPooler objectPooler;
+        [SerializeField] private Tag projectileTag;
 
         private Camera _camera;
         private float _delayTime;
@@ -43,7 +49,7 @@ namespace House
                 
                 if (!(Time.time > _delayTime)) return;
                 if (!Input.GetMouseButtonDown(0)) return;
-                GameObject obj = Instantiate(projectile, shootPoint.position, quaternion.identity);
+                GameObject obj = objectPooler.SpawnFromPool(projectileTag, shootPoint.position, Quaternion.identity);
                 obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
                 _delayTime = Time.time + shootDelay;
 
