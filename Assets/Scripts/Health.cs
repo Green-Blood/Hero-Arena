@@ -6,13 +6,12 @@ using UnityEngine.AI;
 public class Health : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 100f;
-   
-    public bool IsDead { get; private set; }
     
     private IDeath _death;
     private float _currentHealth;
     
     public Action<float, float> OnHealthChangedAction;
+    public bool IsDead { get; private set; }
 
     private void Awake()
     {

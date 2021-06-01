@@ -1,20 +1,14 @@
+using Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemy
 {
-    public class EnemyMovement : MonoBehaviour
+    public class EnemyMovement : MonoBehaviour, IMovable
     {
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
-        [SerializeField] private Movement enemyMovement;
-        
-        private Transform _player;
-        
-        private void Awake()
-        {
-            _player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        [SerializeField] private Movement enemyMovement; 
         public void Move(Vector3 playerPosition)
         {
             agent.SetDestination(playerPosition);

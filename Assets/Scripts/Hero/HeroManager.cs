@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Hero
 {
-    public class HeroController : MonoBehaviour
+    public class HeroManager : MonoBehaviour
     {
         [TabGroup("Hero Parameters")]
         [SerializeField] private float attackDistance = 2f;
@@ -35,6 +35,12 @@ namespace Hero
         }
 
         private void OnEnable() => OnEnterAction += MoveTo;
+        private void MoveTo(Transform enemy)
+        {
+            if (!agent.enabled) return;
+            _enemies.Add(enemy);
+            SetCurrentEnemyHealth();
+        }
         private void LateUpdate()
         {
             if (!agent.enabled) return;
@@ -63,13 +69,7 @@ namespace Hero
             agent.SetDestination(_enemies[_currentIndex].position);
             heroAttack.canAttack = true;
         }
-        private void MoveTo(Transform enemy)
-        {
-            if (!agent.enabled) return;
-            _enemies.Add(enemy);
-            SetCurrentEnemyHealth();
-         
-        }
+        
 
         // ReSharper disable Unity.PerformanceAnalysis
         private void SetCurrentEnemyHealth()
