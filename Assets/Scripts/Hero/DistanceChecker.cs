@@ -5,14 +5,14 @@ namespace Hero
 {
     public class DistanceChecker : MonoBehaviour
     {
-        [SerializeField] private HeroManager heroManager;
+        [SerializeField] private HeroWarrior heroWarrior;
         [SerializeField] private Tag enemyTag;
         
 
         private void OnTriggerEnter(Collider other)
         {
             if(!other.HasTag(enemyTag)) return;
-            heroManager.OnEnterAction?.Invoke(other.transform);   
+            heroWarrior.OnEnterAction?.Invoke(other.transform);   
         }
     }
 }

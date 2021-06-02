@@ -6,78 +6,67 @@ using UnityEngine.AI;
 
 namespace Hero
 {
-    public class HeroManager : MonoBehaviour
+    public class HeroWarrior : MonoBehaviour
     {
-        [TabGroup("Hero Parameters")]
-        [SerializeField] private float attackDistance = 2f;
-        
-        [TabGroup("Hero References")]
         [SerializeField] private NavMeshAgent agent;
-        [TabGroup("Hero References")]
-        [SerializeField] private Animator animator;
-        [TabGroup("Hero References")]
-        [SerializeField] private HeroAttack heroAttack;
-        [TabGroup("Hero References")]
-        [SerializeField] private Movement heroMovement;
+        [SerializeField] private HeroAttack heroAttack; 
+        [SerializeField] private HeroMovement heroMovement;
+        [SerializeField] private Health heroHealth;
         
         private List<Transform> _enemies;
+        private List<Health> _enemiesHealth;
         private bool _isAnybodyAround;
         private Health _currentEnemyHealth;
         private int _currentIndex;
-        
         private Vector3 _initialPosition;
 
         public Action<Transform> OnEnterAction;
+        
         private void Awake()
         {
             _enemies = new List<Transform>();
+            _enemiesHealth = new List<Health>();
             _initialPosition = transform.position;
         }
 
-        private void OnEnable() => OnEnterAction += MoveTo;
-        private void MoveTo(Transform enemy)
+        private void OnEnable() => OnEnterAction += GetEnemies;
+        private void GetEnemies(Transform enemy)
         {
-            if (!agent.enabled) return;
             _enemies.Add(enemy);
+            _enemiesHealth.Add(enemy.GetComponent<Health>());
             SetCurrentEnemyHealth();
         }
         private void LateUpdate()
         {
-            if (!agent.enabled) return;
-            if (agent.remainingDistance < attackDistance)
-            {
-                agent.isStopped = true;
-                heroAttack.Attack();
-            }
-            else
-            {
-                agent.isStopped = false;
-            }
+            if(heroHealth.IsDead) return;
+            if (!_isAnybodyAround) return;
+           
             
-            Move();
-            animator.SetFloat(AnimatorTexts.Speed, heroMovement.GetCurrentSpeed());
+            heroMovement.Move(_enemies[_currentIndex].position);
+            heroAttack.Attack();
+            OnEnemyDeath();
+            
+            
+           
         }
 
-        private void Move()
+        private void OnEnemyDeath()
         {
-            if (!_isAnybodyAround) return;
             if (_currentEnemyHealth.IsDead)
             {
                 _currentIndex++;
                 SetCurrentEnemyHealth();
             }
-            agent.SetDestination(_enemies[_currentIndex].position);
             heroAttack.canAttack = true;
         }
         
-
-        // ReSharper disable Unity.PerformanceAnalysis
         private void SetCurrentEnemyHealth()
         {
             if (_currentIndex <= _enemies.Count)
             {
-                _currentEnemyHealth = _enemies[_currentIndex].GetComponent<Health>();
+                _currentEnemyHealth = _enemiesHealth[_currentIndex];
                 _isAnybodyAround = true;
+               
             }
             else
             {
@@ -87,6 +76,6 @@ namespace Hero
             }
         }
         
-        private void OnDisable() => OnEnterAction -= MoveTo;
+        private void OnDisable() => OnEnterAction -= GetEnemies;
     }
 }

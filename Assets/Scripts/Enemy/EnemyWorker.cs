@@ -1,9 +1,10 @@
 using System;
+using Hero;
 using UnityEngine;
 
 namespace Enemy
 {
-    public class EnemyManager : MonoBehaviour
+    public class EnemyWorker : MonoBehaviour
     {
         [SerializeField] private EnemyAttack enemyAttack;
         [SerializeField] private EnemyMovement enemyMovement;
