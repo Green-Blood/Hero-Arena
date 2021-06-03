@@ -40,14 +40,11 @@ namespace Hero
         {
             if(heroHealth.IsDead) return;
             if (!_isAnybodyAround) return;
-           
-            
+
             heroMovement.Move(_enemies[_currentIndex].position);
             heroAttack.Attack();
+            
             OnEnemyDeath();
-            
-            
-           
         }
 
         private void OnEnemyDeath()

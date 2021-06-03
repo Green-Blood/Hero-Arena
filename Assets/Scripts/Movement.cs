@@ -16,9 +16,9 @@ public class Movement : MonoBehaviour
           return _currentSpeed;
      }
 
-     public void RotateTowards(Transform target, float rotationSpeed)
+     public void RotateTowards(Vector3 targetPosition, float rotationSpeed)
      {
-          Vector3 direction = (target.position - transform.position).normalized;
+          Vector3 direction = (targetPosition - transform.position).normalized;
           Quaternion lookRotation = Quaternion.LookRotation(direction);
           transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
      }

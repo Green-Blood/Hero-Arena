@@ -1076,10 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab1a0e30ea9ec44e8080e922de27e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDealDamage: 0
   animator: {fileID: 3094690990825234299}
   agent: {fileID: 1910538152}
-  attackRange: 1
+  movement: {fileID: 2412580016545422749}
+  attackRange: 1.1
+  rotationSpeed: 1
+  canDealDamage: 0
 --- !u!1 &3094690990815718601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,8 +1421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  attackHandler: {fileID: 1503443635258895503}
   targetTag: {fileID: 11400000, guid: db22c4773c5a5b942be6923d7355b00c, type: 2}
+  attackHandler: {fileID: 1503443635258895503}
 --- !u!1 &3094690990815718623
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,25 +1,17 @@
-using Enemy;
-using Interfaces;
-using Sirenix.OdinInspector;
+using Core;
 using UnityEngine;
 
-public class EnemyDamageDealer : MonoBehaviour
+namespace Enemy
 {
-    [Title("Parameters")]
-    [SerializeField] private float damage = 20f;
-
-    [SerializeField] private EnemyAttack attackHandler;
-    [SerializeField] private Tag targetTag;
-
-    
-    private void OnTriggerEnter(Collider other)
+    public class EnemyDamageDealer : DamageDealer
     {
-        if(!attackHandler.canDealDamage) return;
-        if (other.HasTag(targetTag))
+        [SerializeField] private EnemyAttack attackHandler;
+
+
+        private void OnTriggerEnter(Collider other)
         {
-            other.GetComponent<IDamageable>().TakeDamage(damage);
+            if (!attackHandler.canDealDamage) return;
+            if (other.HasTag(targetTag)) DealDamage(other);
         }
     }
-
-  
 }

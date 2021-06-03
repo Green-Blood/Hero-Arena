@@ -1793,10 +1793,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237444eec3cfe164eb3a182ea656a021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDealDamage: 0
   animator: {fileID: 2417247371020065505}
   agent: {fileID: 2366643095923125632}
+  movement: {fileID: 6065944729817249079}
   attackRange: 2
+  rotationSpeed: 1
+  canDealDamage: 0
   canAttack: 0
 --- !u!114 &1253087757995086
 MonoBehaviour:
@@ -2859,8 +2861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  attackHandler: {fileID: 1253087757995085}
   targetTag: {fileID: 11400000, guid: b81e8672086a48c4293a08fea2045968, type: 2}
+  attackHandler: {fileID: 1253087757995085}
 --- !u!1 &2368117068214320907
 GameObject:
   m_ObjectHideFlags: 0
