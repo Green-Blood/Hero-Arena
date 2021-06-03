@@ -13,7 +13,6 @@ namespace Hero
         {
             agent.SetDestination(enemyPosition);
             animator.SetFloat(AnimatorTexts.Speed, heroMovement.GetCurrentSpeed());
-            
         }
     }
 }

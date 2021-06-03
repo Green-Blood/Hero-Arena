@@ -884,7 +884,6 @@ GameObject:
   - component: {fileID: 1910538155}
   - component: {fileID: 2412580016545422749}
   - component: {fileID: 561981161200449698}
-  - component: {fileID: 2976866538409861362}
   - component: {fileID: 1503443635258895503}
   m_Layer: 0
   m_Name: Worker
@@ -1062,23 +1061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee61927745a6f440abb45f7b4a10f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttack: {fileID: 2976866538409861362}
+  enemyAttack: {fileID: 1503443635258895503}
   enemyMovement: {fileID: 1910538150}
   enemyHealth: {fileID: 1910538154}
---- !u!114 &2976866538409861362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3094690990815718599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ffcd05645cac864daf1e32a4cfd9efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meleeAttackHandler: {fileID: 1503443635258895503}
-  attackRange: 1.2
 --- !u!114 &1503443635258895503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,9 +1076,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab1a0e30ea9ec44e8080e922de27e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDealDamage: 0
   animator: {fileID: 3094690990825234299}
   agent: {fileID: 1910538152}
-  canDealDamage: 0
+  attackRange: 1
 --- !u!1 &3094690990815718601
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 400215434}
   - component: {fileID: 400215435}
   - component: {fileID: 400215437}
-  - component: {fileID: 8476280160659724246}
+  - component: {fileID: 4673724838767274937}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Player
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46fd0be7d8c25348b71d12c2ee9b8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &8476280160659724246
+--- !u!136 &4673724838767274937
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3227408
-  m_Height: 2.814731
+  m_Radius: 0.45
+  m_Height: 3.1705556
   m_Direction: 1
-  m_Center: {x: 0, y: 0.34822977, z: 0}
+  m_Center: {x: 0, y: 0.2318008, z: 0}
 --- !u!114 &251855615
 MonoBehaviour:
   m_ObjectHideFlags: 0

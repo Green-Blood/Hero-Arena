@@ -1,14 +1,14 @@
-using Core;
+using Enemy;
 using Interfaces;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class DamageDealer : MonoBehaviour
+public class EnemyDamageDealer : MonoBehaviour
 {
     [Title("Parameters")]
     [SerializeField] private float damage = 20f;
 
-    [SerializeField] private MeleeAttackHandler attackHandler;
+    [SerializeField] private EnemyAttack attackHandler;
     [SerializeField] private Tag targetTag;
 
     
