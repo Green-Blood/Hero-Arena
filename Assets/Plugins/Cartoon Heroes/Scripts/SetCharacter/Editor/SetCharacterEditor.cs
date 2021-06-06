@@ -111,16 +111,16 @@ namespace CartoonHeroes
 
                     if(GUILayout.Button("Delete Group: " + setCharacter.itemGroups[i].name))
                     {
-                        SetCharacter.ItemGroup[] itemGroups_Temp = new SetCharacter.ItemGroup[setCharacter.itemGroups.Length - 1];
+                        SetCharacter.ItemGroup[] itemGroupsTemp = new SetCharacter.ItemGroup[setCharacter.itemGroups.Length - 1];
                         for (int n = 0; n < i; n++)
                         {
-                            itemGroups_Temp[n] = setCharacter.itemGroups[n];
+                            itemGroupsTemp[n] = setCharacter.itemGroups[n];
                         }
                         for(int n = i+1; n < setCharacter.itemGroups.Length; n++)
                         {
-                            itemGroups_Temp[n - 1] = setCharacter.itemGroups[n];
+                            itemGroupsTemp[n - 1] = setCharacter.itemGroups[n];
                         }
-                        setCharacter.itemGroups = itemGroups_Temp;
+                        setCharacter.itemGroups = itemGroupsTemp;
                     }
 
                     GUILayout.Space(defaultSpace);
