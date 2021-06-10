@@ -13,10 +13,10 @@ namespace House
         [SerializeField] private Tag obstacleTag;
 
 
-        private void OnEnable()
-        {
+        // private void OnEnable()
+        // {
             //projectileMesh.SetActive(true);
-        }
+        // }
 
         private void OnCollisionEnter(Collision other)
         {

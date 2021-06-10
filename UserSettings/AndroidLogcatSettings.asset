@@ -1,23 +1,33 @@
 {
     "m_SelectedDeviceId": "c88df60f",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "c88df60f",
+        "name": "com.StranGen.HeroArena",
+        "processId": 25277,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "c88df60f",
+<<<<<<< HEAD
             "name": "com.mi.android.globallauncher",
             "processId": 12769,
+=======
+            "name": "com.StranGen.HeroArena",
+            "processId": 23659,
+>>>>>>> 55e21689f9543f1d063b6b9fdc290a9735dedd2a
             "exited": false
         },
         {
             "deviceId": "c88df60f",
+<<<<<<< HEAD
             "name": "com.miui.securitycenter",
             "processId": 22589,
+=======
+            "name": "com.StranGen.HeroArena",
+            "processId": 25277,
+>>>>>>> 55e21689f9543f1d063b6b9fdc290a9735dedd2a
             "exited": false
         }
     ],

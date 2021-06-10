@@ -50,11 +50,13 @@ namespace House
                 transform.rotation = Quaternion.LookRotation(Vo);
                 
                 if (!(Time.time > _delayTime)) return;
-                if (!Input.GetMouseButtonDown(0)) return;
-                GameObject obj = objectPooler.SpawnFromPool(projectileTag, shootPoint.position, Quaternion.identity);
-                obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
-                _delayTime = Time.time + shootDelay;
-
+                if (Input.GetMouseButtonUp(0))
+                {
+                    GameObject obj =
+                        objectPooler.SpawnFromPool(projectileTag, shootPoint.position, Quaternion.identity);
+                    obj.GetComponentInChildren<Rigidbody>().velocity = Vo;
+                    _delayTime = Time.time + shootDelay;
+                }
             }
             else
             {
