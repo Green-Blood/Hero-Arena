@@ -35,6 +35,8 @@ MonoBehaviour:
     - Sirenix.OdinInspector.CompatibilityLayer
     - AV.Tags
     - NavMeshComponents
+    - GrabbitAssembly
+    - vhacd
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - NavMeshComponentsEditor
     - Sirenix.OdinInspector.Modules.UnityMathematics
