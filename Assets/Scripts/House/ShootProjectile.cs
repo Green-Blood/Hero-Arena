@@ -8,17 +8,19 @@ namespace House
     public class ShootProjectile : MonoBehaviour
     {
 
-        [Title("Parameters")]
-        [SerializeField] private float shootDelay = 1f;
-        [SerializeField] private LayerMask layerMask;
-
-        [Title("References")]
-        [SerializeField] private GameObject cursor;
+        [Title("Projectile")]
         [SerializeField] private Transform shootPoint;
-        
-        [Title("Pool")]
+        [SerializeField] private float shootDelay = 1f;
         [SerializeField] private ObjectPooler objectPooler;
         [SerializeField] private Tag projectileTag;
+        
+        [Title("Cursor")]
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private GameObject cursor;
+       
+        
+       
+        
 
         private Camera _camera;
         private float _delayTime;

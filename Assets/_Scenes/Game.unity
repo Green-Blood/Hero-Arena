@@ -10818,9 +10818,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1931243134}
     - target: {fileID: 251855615, guid: 8554cafdb05eae54eb8a3dbd26d5101e, type: 3}
+      propertyPath: shootDelay
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 251855615, guid: 8554cafdb05eae54eb8a3dbd26d5101e, type: 3}
       propertyPath: objectPooler
       value: 
       objectReference: {fileID: 1105278026}
+    - target: {fileID: 251855615, guid: 8554cafdb05eae54eb8a3dbd26d5101e, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 1627070253, guid: 8554cafdb05eae54eb8a3dbd26d5101e, type: 3}
       propertyPath: m_Layer
       value: 9

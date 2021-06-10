@@ -138,9 +138,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 444903702961008180}
     m_Modifications:
+    - target: {fileID: 126650, guid: c2f28a236b0696a4f90a994422019577, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 138692, guid: c2f28a236b0696a4f90a994422019577, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 193104, guid: c2f28a236b0696a4f90a994422019577, type: 3}
       propertyPath: m_Name
       value: BalloonPopExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 193104, guid: c2f28a236b0696a4f90a994422019577, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 439252, guid: c2f28a236b0696a4f90a994422019577, type: 3}
       propertyPath: m_RootOrder
