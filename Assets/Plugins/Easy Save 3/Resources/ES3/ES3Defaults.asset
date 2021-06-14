@@ -32,11 +32,11 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - Cinemachine
     - Assembly-CSharp
+    - GrabbitAssembly
     - Sirenix.OdinInspector.CompatibilityLayer
     - AV.Tags
-    - NavMeshComponents
-    - GrabbitAssembly
     - vhacd
+    - NavMeshComponents
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - NavMeshComponentsEditor
     - Sirenix.OdinInspector.Modules.UnityMathematics
